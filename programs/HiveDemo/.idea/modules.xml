@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HiveDemo.iml" filepath="$PROJECT_DIR$/HiveDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JDBC2Hive2/JDBC2Hive2.iml" filepath="$PROJECT_DIR$/JDBC2Hive2/JDBC2Hive2.iml" />
+    </modules>
+  </component>
+</project>
