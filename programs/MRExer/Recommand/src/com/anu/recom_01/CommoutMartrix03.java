@@ -1,0 +1,77 @@
+package com.anu.recom_01;
+
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
+import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.LongWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
+
+import java.io.IOException;
+
+public class CommoutMartrix03 {
+
+
+    public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
+
+        Configuration conf = new Configuration();
+        Job job = Job.getInstance(conf);
+
+
+        job.setMapperClass(CommoutMartrix03Mapper.class);
+        job.setReducerClass(CommoutMartrix03Reducer.class);
+
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(Text.class);
+
+
+        TextInputFormat.setInputPaths(job,new Path("C:/MR/Recommand/output_wupin_comout02/"));
+        Path outpath = new Path("C:/MR/Recommand/output_wupin_comout03/");
+        FileSystem fileSystem = FileSystem.get(conf);
+        if(fileSystem.exists(outpath)) {
+            fileSystem.delete(outpath,true);
+        }
+        TextOutputFormat.setOutputPath(job,outpath);
+
+        if (job.waitForCompletion(true)){
+            System.out.println("job执行结束！");
+        } else {
+            System.out.println("job执行失败！");
+        }
+    }
+
+
+    public static class CommoutMartrix03Mapper extends Mapper<LongWritable,Text,Text,Text> {
+
+        @Override
+        protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
+
+            String[] split = value.toString().split(":");
+            if(split.length == 2) {
+                context.write(new Text(split[0]),new Text(split[1]));
+            }
+        }
+    }
+
+    public static class CommoutMartrix03Reducer extends Reducer<Text,Text,Text,Text> {
+
+        @Override
+        protected void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
+
+            StringBuilder sb = new StringBuilder();
+            sb.append("[");
+            for (Text value:values) {
+                String[] split = value.toString().split("\t");
+                sb.append(split[0]+":"+split[1]+" ");
+            }
+            sb.append("]");
+            context.write(key,new Text(sb.toString()));
+        }
+    }
+
+}

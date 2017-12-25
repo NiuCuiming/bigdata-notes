@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="paten">
+    <output-path>$PROJECT_DIR$/out/artifacts/paten</output-path>
+    <root id="archive" name="paten.jar">
+      <element id="module-output" name="MR_01" />
+    </root>
+  </artifact>
+</component>

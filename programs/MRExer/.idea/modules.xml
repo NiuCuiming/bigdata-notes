@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FlumExer/FlumExer.iml" filepath="$PROJECT_DIR$/FlumExer/FlumExer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MRExer.iml" filepath="$PROJECT_DIR$/MRExer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MR_01/MR_01.iml" filepath="$PROJECT_DIR$/MR_01/MR_01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Recommand/Recommand.iml" filepath="$PROJECT_DIR$/Recommand/Recommand.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Weblog_click/Weblog_click.iml" filepath="$PROJECT_DIR$/Weblog_click/Weblog_click.iml" />
+    </modules>
+  </component>
+</project>

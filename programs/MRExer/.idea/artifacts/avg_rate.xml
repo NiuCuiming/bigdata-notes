@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="avg_rate">
+    <output-path>$PROJECT_DIR$/out/artifacts/avg_rate</output-path>
+    <root id="archive" name="avg_rate.jar">
+      <element id="module-output" name="Recommand" />
+    </root>
+  </artifact>
+</component>
